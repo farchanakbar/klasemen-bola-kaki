@@ -8,7 +8,7 @@ function Table({data}) {
         <thead className="bg-gray-50">
           <tr className='bg-slate-500 text-white'>
             <th scope="col" className="sticky left-0 z-10 px-3 py-3 text-left font-medium uppercase tracking-wider bg-slate-500">Pos</th>
-            <th scope="col" className="sticky left-0 z-10 px-[70px] py-3 font-medium uppercase md:text-start text-center bg-slate-500">Team</th>
+            <th scope="col" className="sticky left-0 z-10 px-[66px] py-3 font-medium uppercase md:text-start text-center bg-slate-500">Team</th>
             <th scope="col" className="px-3 py-3 text-center font-medium uppercase tracking-wider">Main</th>
             <th scope="col" className="px-3 py-3 text-center font-medium uppercase tracking-wider">Point</th>
             <th scope="col" className="px-3 py-3 text-center font-medium uppercase tracking-wider">Menang</th>
