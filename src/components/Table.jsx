@@ -18,13 +18,13 @@ function Table({data}) {
             <th scope="col" className="px-3 py-3 text-center font-medium uppercase tracking-wider">-/+</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200">
+        <tbody className="divide-y text-white divide-gray-200">
           {data.standings?.map((item, index) => (<tr key={index + 1}>
             <td className="sticky text-start left-0 z-10 px-6 py-4">
               {index + 1}
             </td>
-            <td className="sticky bg-white flex items-center gap-3 left-0 z-10 px-6 py-4">
-              <img width={30} src={item?.team?.logos?.[0]['href']} alt="{item.team?.name}" />
+            <td className="sticky bg-[#27374d] flex items-center gap-3 left-0 z-10 px-6 py-4">
+              <img width={30} src={item?.team?.logos?.[0]['href']} alt={item.team?.name} />
               <h3>{item.team.shortDisplayName}</h3>
             </td>
             <td className='text-center'>{item.stats[0]?.value}</td>

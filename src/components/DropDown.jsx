@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../api/axios';
-import {RiArrowDownSLine} from 'react-icons/ri';
 
-function DropDown() {
+function DropDown({season}) {
   const [data, setData] = useState([]);
-  const [isOpen, setIsOpen] = useState(false);
+  const [selectedYear, setSelectedYear] = useState(" ");
 
   useEffect(() => {
     axios.get('/leagues/eng.1/seasons')
@@ -16,32 +15,24 @@ function DropDown() {
     });
   }, []);
 
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
+  const handleYearChange = (event) => {
+    season(event.target.value);
+    setSelectedYear(event.target.value);
   };
-
+  // console.log(selectedYear);
   // console.log(data.map((item) => item.year));
 
   return (
-    <div className="absolute z-20 mt-[-50px] right-0">
-      <button
-        className="px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm gap-1 flex items-center"
-        onClick={toggleDropdown}
-      >
-        Tahun 
-        <RiArrowDownSLine size={25} />
-      </button>
-      {isOpen && (
-        <div className="z-20 w-[130px] h-[200px] overflow-y-auto mt-2 rounded-md shadow-lg">
-          <ul className="py-1 bg-slate-700 rounded-md">
-            {data.map((item) => (<li key={item.year}>
-              <button className="block px-4 py-2 mx-auto text-white focus:outline-none">
-                {item.year}
-              </button>
-            </li>))}
-          </ul>
-        </div>
-      )}
+    <div>
+      <label className='text-white' htmlFor="year">Pilih Tahun : </label>
+      <select id="year" value={selectedYear} onChange={handleYearChange}>
+        <option value="">Tahun</option>
+        {data.map((season) => (
+          <option key={season.year} value={season.year}>
+            {season.year}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }
